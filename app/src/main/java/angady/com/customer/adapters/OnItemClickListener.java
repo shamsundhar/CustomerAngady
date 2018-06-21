@@ -5,5 +5,5 @@ package angady.com.customer.adapters;
  */
 
 public interface OnItemClickListener {
-    void onItemClick(String storeName);
+    void onItemClick(String storeId, String storeName);
 }

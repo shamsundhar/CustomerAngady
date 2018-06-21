@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 
 import angady.com.customer.LoginActivity;
 import angady.com.customer.SignupActivity;
+import angady.com.customer.activities.ProductListActivity;
 import angady.com.customer.injection.modules.ActivityModule;
 import angady.com.customer.injection.qualifier.ActivityContext;
 import angady.com.customer.injection.qualifier.ActivityFragmentManager;
@@ -23,5 +24,6 @@ public interface ActivityComponent extends AppComponent {
 
     void inject(SignupActivity activity);
     void inject(LoginActivity activity);
+    void inject(ProductListActivity activity);
 
 }

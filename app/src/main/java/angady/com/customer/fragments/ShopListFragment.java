@@ -36,6 +36,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
+import static angady.com.customer.utils.Constants.BUNDLE_KEY_SHOP_ID;
 import static angady.com.customer.utils.Constants.BUNDLE_KEY_SHOP_NAME;
 
 
@@ -128,9 +129,10 @@ public class ShopListFragment extends BaseFragment {
 
         shopListRecyclerViewAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(String storeName) {
+            public void onItemClick(String shopId, String shopName) {
                 Intent intent = new Intent(getActivity(), ProductListActivity.class);
-                intent.putExtra(BUNDLE_KEY_SHOP_NAME, storeName);
+                intent.putExtra(BUNDLE_KEY_SHOP_ID, shopId);
+                intent.putExtra(BUNDLE_KEY_SHOP_NAME, shopName);
                 startActivity(intent);
             }
         });

@@ -7,6 +7,7 @@ package angady.com.customer.utils;
 public class Constants {
     public static final String BUNDLE_KEY_MOBILE_NUMBER = "BUNDLE_MOBILE_NUMBER";
     public static final String BUNDLE_KEY_SHOP_NAME = "BUNDLE_SHOP_NAME";
+    public static final String BUNDLE_KEY_SHOP_ID = "BUNDLE_SHOP_ID";
     public static final String BUNDLE_KEY_TOTAL_PAYABLE_AMOUNT = "BUNDLE_TOTAL_PAYABLE_AMOUNT";
     public static final String BUNDLE_KEY_DISPLAY_ORDER_SUCCESS_POPUP = "BUNDLE_DISPLAY_ORDER_POPUP";
     public static final String BUNDLE_KEY_OTP = "BUNDLE_OTP";

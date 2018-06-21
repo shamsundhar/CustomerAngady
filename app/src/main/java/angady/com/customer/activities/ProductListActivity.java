@@ -1,5 +1,6 @@
 package angady.com.customer.activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -15,28 +16,44 @@ import android.widget.TextView;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import angady.com.customer.BaseActivity;
 import angady.com.customer.R;
+import angady.com.customer.data.remote.ShopApi;
 import angady.com.customer.fragments.ProductListFragment;
 import angady.com.customer.fragments.ShopListFragment;
 import angady.com.customer.model.CenterRepository;
 import angady.com.customer.model.entities.Money;
 import angady.com.customer.model.entities.Product;
+import angady.com.customer.model.network.ProductListRequest;
+import angady.com.customer.model.network.ProductListResponse;
+import angady.com.customer.model.network.ShopListRequest;
+import angady.com.customer.utils.Constants;
 import angady.com.customer.utils.PreferenceHelper;
 import angady.com.customer.utils.TinyDB;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
+import static angady.com.customer.utils.Constants.BUNDLE_KEY_SHOP_ID;
 import static angady.com.customer.utils.Constants.BUNDLE_KEY_SHOP_NAME;
 import static angady.com.customer.utils.Constants.BUNDLE_KEY_TOTAL_PAYABLE_AMOUNT;
 
-public class ProductListActivity extends AppCompatActivity {
+public class ProductListActivity extends BaseActivity {
     static ViewPager viewPager;
     static TabLayout tabLayout;
     private TextView checkOutAmount;
     private TextView itemCountTextView;
+    @Inject
+    ShopApi shopApi;
     @BindView(R.id.viewCart)
     TextView viewCart;
     private int itemCount = 0;
@@ -46,6 +63,7 @@ public class ProductListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
         ButterKnife.bind(this);
+        activityComponent().inject(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // add back arrow to toolbar
@@ -63,7 +81,41 @@ public class ProductListActivity extends AppCompatActivity {
                 setTitle(bundle.getString(BUNDLE_KEY_SHOP_NAME));
             }
         }
+        final ProgressDialog progressDialog = new ProgressDialog(ProductListActivity.this,
+                R.style.AppTheme_Dark_Dialog);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Loading please wait...");
+        progressDialog.show();
+        PreferenceHelper preferenceHelper = PreferenceHelper.getPrefernceHelperInstace();
 
+        HashMap<String, String> header = new HashMap<>();
+        header.put("Authorization-ID", preferenceHelper.getString(ProductListActivity.this, Constants.PREF_KEY_TOKEN, "" ));
+        header.put("User-ID", preferenceHelper.getString(ProductListActivity.this, Constants.PREF_KEY_LOGIN_ID, ""));
+        ProductListRequest productListRequest = new ProductListRequest();
+        productListRequest.setShopkeeperId(bundle.getString(BUNDLE_KEY_SHOP_ID));
+        shopApi.getProductsByShop(header, productListRequest)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ProductListResponse>() {
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(ProductListResponse productListResponse) {
+
+                    }
+                });
         if (viewPager != null) {
             setupViewPager(viewPager);
             tabLayout.setupWithViewPager(viewPager);

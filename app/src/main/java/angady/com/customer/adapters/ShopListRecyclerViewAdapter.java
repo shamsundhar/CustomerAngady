@@ -107,7 +107,7 @@ public class ShopListRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         public void bind(final Shop shop, final OnItemClickListener listener) {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
-                    listener.onItemClick(shop.getShopName());
+                    listener.onItemClick(shop.getShopId(), shop.getShopName());
                 }
             });
         }
