@@ -1,0 +1,63 @@
+<resources>
+
+    <string name="change_password">Change\npassword</string>Enter OTP which you received to your
+    mobile number
+    <string name="otp_mobile_number_message">Enter OTP which you received to your mobile number %1$s.</string>
+    <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="text_cash_on_delivery">Cash On Delivery</string>
+    <string name="text_card_on_delivery">Card On Delivery</string>
+    <string name="text_paytm_on_delivery">Paytm On Delivery</string>
+
+    <string name="text_home">Home</string>
+    <string name="text_contact_details">Contact Details</string>
+    <string name="text_payment_options">Payment Options</string>
+    <string name="text_order_history">Order History</string>
+    <string name="text_change_password">Change Password</string>
+    <string name="text_about_feedback">About Us and Feedback</string>
+    <string name="text_profile">Profile</string>
+    <string name="text_share">Share</string>
+    <string name="text_rate_app">Rate App</string>
+    <string name="text_signout">Signout</string>
+
+    <string name="text_password">Password</string>
+    <string name="text_provide_feedback">Provide your feedback here</string>
+    <string name="text_mobile_number">Mobile Number</string>
+    <string name="text_submit">Submit</string>
+    <string name="text_continue">Continue</string>
+    <string name="text_confirm">Confirm</string>
+    <string name="text_view_cart">View Cart</string>
+    <string name="text_save">Save</string>
+    <string name="text_reset_password">Reset Password</string>
+    <string name="text_about_us">Angady App for Android\nVersion %1$s\n2018, Angady.com, Inc</string>
+
+    <string name="text_selected_location">SELECTED LOCATION</string>
+
+    <string name="item_1">Fruits &amp; Vegetables</string>
+    <string name="item_2">Foodgrains, Oil &amp; Masala</string>
+    <string name="item_3">Bakery, Cakes &amp; Dairy</string>
+    <string name="item_4">Beverages</string>
+    <string name="item_5">Beauty &amp; Hygiene</string>
+    <string name="item_6">Household</string>
+    <string name="item_7">Eggs, Meat &amp; Fish</string>
+
+
+    <string name="crash_toast_text">Oops Crashe Occurred</string>
+
+    <string name="text_please_wait">Please wait...</string>
+    <string name="text_authenticating">Authenticating...</string>
+
+    <string name="text_account_created">Account Created</string>
+    <string name="text_registration_failed">Registration Failed</string>
+    <string name="text_login_failed">Login Failed</string>
+    <string name="text_reset_password_failed">Reset Password Failed</string>
+</resources>
