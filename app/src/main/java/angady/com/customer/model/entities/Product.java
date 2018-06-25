@@ -18,6 +18,8 @@ public class Product {
 
     private String quantity_per_unit;
 
+    private String orderQty;
+
     private String sku;
 
     private String product_description;
@@ -188,6 +190,12 @@ public class Product {
 
     public void setProduct_image(String product_image) {
         this.product_image = product_image;
+    }
+    public String getQuantity() {
+        return orderQty;
+    }
+    public void setQuantity(String quantity) {
+        this.orderQty = quantity;
     }
 
     @Override

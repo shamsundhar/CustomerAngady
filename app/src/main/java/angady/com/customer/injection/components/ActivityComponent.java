@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 
 import angady.com.customer.LoginActivity;
 import angady.com.customer.SignupActivity;
+
 import angady.com.customer.activities.ProductListActivity;
 import angady.com.customer.injection.modules.ActivityModule;
 import angady.com.customer.injection.qualifier.ActivityContext;

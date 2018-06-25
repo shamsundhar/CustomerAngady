@@ -76,19 +76,19 @@ public class ProductListRecyclerViewAdapter extends RecyclerView.Adapter<Recycle
     private void configureViewHolder1(final ProductListRecyclerViewAdapter.ViewHolder1 vh1,final int position) {
         Product product = (Product) items.get(position);
         if (product != null) {
-            vh1.getItemName().setText(product.getProductName());
-            vh1.getItemShortDesc().setText(product.getItemShortDesc());
-            vh1.getItem_price().setText(product.getMRP());
+            vh1.getItemName().setText(product.getProduct_name());
+            vh1.getItemShortDesc().setText(product.getProduct_description());
+            vh1.getItem_price().setText(product.getUnit_price());
 
 
             String sellCostString = Money.rupees(
                     BigDecimal.valueOf(Long.valueOf(product
-                            .getSellMRP()))).toString()
+                            .getSpecial_price()))).toString()
                     + "  ";
 
             String buyMRP = Money.rupees(
                     BigDecimal.valueOf(Long.valueOf(product
-                            .getMRP()))).toString();
+                            .getUnit_price()))).toString();
 
             String costString = sellCostString + buyMRP;
 
@@ -144,7 +144,7 @@ public class ProductListRecyclerViewAdapter extends RecyclerView.Adapter<Recycle
                                         BigDecimal
                                                 .valueOf(Long
                                                         .valueOf(((Product) items.get(position))
-                                                                .getSellMRP())),
+                                                                .getSpecial_price())),
                                         true);
 
                                 // update current item quanitity
@@ -165,7 +165,7 @@ public class ProductListRecyclerViewAdapter extends RecyclerView.Adapter<Recycle
                                         BigDecimal
                                                 .valueOf(Long
                                                         .valueOf(((Product) items.get(position))
-                                                                .getSellMRP())),
+                                                                .getSpecial_price())),
                                         true);
 
                             }
@@ -200,7 +200,7 @@ public class ProductListRecyclerViewAdapter extends RecyclerView.Adapter<Recycle
                                                     .getQuantity()) - 1));
 
                             productListActivity.updateCheckOutAmount(
-                                    BigDecimal.valueOf(Long.valueOf(((Product) items.get(position)).getSellMRP())),
+                                    BigDecimal.valueOf(Long.valueOf(((Product) items.get(position)).getSpecial_price())),
                                     false);
 
                             vh1.getItem_count().setText(CenterRepository

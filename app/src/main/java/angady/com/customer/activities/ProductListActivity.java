@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -57,6 +58,7 @@ public class ProductListActivity extends BaseActivity {
     @BindView(R.id.viewCart)
     TextView viewCart;
     private int itemCount = 0;
+    private String TAG = "ProductListActivity";
     private BigDecimal checkoutAmount = new BigDecimal(BigInteger.ZERO);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +115,7 @@ public class ProductListActivity extends BaseActivity {
 
                     @Override
                     public void onNext(ProductListResponse productListResponse) {
-
+                        Log.d(TAG +" Product name ",productListResponse.getProducts().get(0).getProduct_name());
                     }
                 });
         if (viewPager != null) {

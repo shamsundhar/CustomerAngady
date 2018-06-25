@@ -75,14 +75,14 @@ public class ViewCartListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private void configureViewHolder1(final ViewCartListAdapter.ViewHolder1 vh1,final int position) {
         Product product = (Product) items.get(position);
         if (product != null) {
-            vh1.getItemName().setText(product.getProductName());
+            vh1.getItemName().setText(product.getProduct_name());
 
             String sellCostString = "X "+Money.rupees(
                     BigDecimal.valueOf(Long.valueOf(product
-                            .getSellMRP()))).toString();
+                            .getSpecial_price()))).toString();
             vh1.getItem_price().setText(sellCostString);
             vh1.getItem_count().setText(product.getQuantity());
-                    Long totalValueOfEachProduct = getProductTotalValue(Long.valueOf(product.getSellMRP()),
+                    Long totalValueOfEachProduct = getProductTotalValue(Long.valueOf(product.getSpecial_price()),
                             Long.valueOf(product.getQuantity()));
             vh1.getItem_total_price().setText(Money.rupees(BigDecimal.valueOf(totalValueOfEachProduct)).toString());
 
@@ -121,13 +121,13 @@ public class ViewCartListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                                         BigDecimal
                                                 .valueOf(Long
                                                         .valueOf(((Product) items.get(position))
-                                                                .getSellMRP())),
+                                                                .getSpecial_price())),
                                         true);
 
                                 // update current item quantity
                                 vh1.getItem_count().setText(tempObj.getQuantity());
                                 //update current item total price
-                                Long _totalValueOfEachProduct = getProductTotalValue(Long.valueOf(tempObj.getSellMRP()),
+                                Long _totalValueOfEachProduct = getProductTotalValue(Long.valueOf(tempObj.getSpecial_price()),
                                         Long.valueOf(tempObj.getQuantity()));
                                 vh1.getItem_total_price().setText(Money.rupees(BigDecimal.valueOf(_totalValueOfEachProduct)).toString());
 
@@ -158,7 +158,7 @@ public class ViewCartListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                                                     .getQuantity()) - 1));
                             //update total payable amount
                             viewCartActivity.updateTotalPayableAmount(
-                                    BigDecimal.valueOf(Long.valueOf(((Product) items.get(position)).getSellMRP())),
+                                    BigDecimal.valueOf(Long.valueOf(((Product) items.get(position)).getSpecial_price())),
                                     false);
                             //set the item quantity text
                             vh1.getItem_count().setText(CenterRepository
@@ -166,7 +166,7 @@ public class ViewCartListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                                     .get(indexOfTempInShopingList).getQuantity());
 
                             //update current item total price
-                            Long _totalValueOfEachProduct = getProductTotalValue(Long.valueOf(tempObj.getSellMRP()),
+                            Long _totalValueOfEachProduct = getProductTotalValue(Long.valueOf(tempObj.getSpecial_price()),
                                     Long.valueOf(tempObj.getQuantity()));
                             vh1.getItem_total_price().setText(Money.rupees(BigDecimal.valueOf(_totalValueOfEachProduct)).toString());
 
